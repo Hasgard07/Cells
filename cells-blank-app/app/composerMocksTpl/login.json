@@ -1,0 +1,114 @@
+{
+  "template": {
+    "tag": "cells-template-paper-drawer-panel",
+    "properties": {
+      "mode": "seamed",
+      "zones": [
+        "app__header",
+        "app__main",
+        "app__footer",
+        "app__overlay"
+      ]
+    }
+  },
+  "components": [
+    {
+      "tag": "cells-login-view",
+      "zone": "app__main",
+      "properties": {
+        "clearIdIcon": "coronita:close",
+        "clearPwdIcon": "coronita:close",
+        "togglePwdIcon":"coronita:visualize",
+        "togglePwdIconToggled":"coronita:hide",
+        "startIcon":"coronita:lock",
+        "endIcon":"coronita:unlock",
+        "headerImage": "images/bg-login.jpg",
+        "cellsConnections": {
+          "in": {
+            "login_success_channel": {
+              "bind": "loadingSuccess"
+            },
+            "login_error_channel": {
+              "bind": "reset"
+            },
+            "__bridge_page_login": {
+              "bind": "reset"
+            }
+          },
+          "out": {
+            "request_login_channel": {
+              "bind": "user-changed"
+            },
+            "user_data_channel": {
+              "bind": "user-changed"
+            },
+            "navigate_to_dashboard_channel": {
+              "bind": "navigate-from-login",
+              "link": {
+                "page": "dashboard"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "tag": "modal-error-alert",
+      "zone": "app__main",
+      "properties": {
+        "cellsConnections": {
+          "in": {
+            "login_error_channel": {
+              "bind": "showLoginError"
+            }
+          }
+        }
+      }
+    },
+    {
+      "zone": "app__main",
+      "type": "DM",
+      "tag": "cells-bgadp-user-dm",
+      "properties": {
+        "host": "https://bbvalabs.com:8001",
+        "consumerId": "00013",
+        "cellsConnections": {
+          "in": {
+            "request_login_channel": {
+              "bind": "user"
+            }
+          },
+          "out": {
+            "login_error_channel": {
+              "bind": "login-request-error"
+            },
+            "login_success_channel": {
+              "bind": "login-request-success"
+            }
+          }
+        }
+      }
+    },
+    {
+      "zone": "app__main",
+      "type": "DM",
+      "tag": "cells-bgadp-accounts-dm",
+      "properties": {
+        "host": "https://bbvalabs.com:8001",
+        "consumerId": "00013",
+        "cellsConnections": {
+          "in": {
+            "__bridge_page_dashboard": {
+              "bind": "user"
+            }
+          },
+          "out": {
+            "data_accounts_channel": {
+              "bind": "accounts-changed"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

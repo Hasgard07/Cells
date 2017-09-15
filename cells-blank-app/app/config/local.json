@@ -1,0 +1,13 @@
+{
+  "deployEndpoint": "",
+  "i18nPath": "locales/",
+  "componentsPath": "./components/",
+  "composerEndpoint": "./composerMocks/",
+  "appId": "",
+  "debug": true,
+  "mocks": true,
+  "coreCache": true,
+  "routerLog": false,
+  "cordovaScript" : "",
+  "prplLevel": 0
+}

@@ -1,0 +1,9 @@
+{
+  "name": "cells-blank-app",
+  "version": "0.1.0",
+  "keywords": [
+    "cells-app"
+  ],
+  "devDependencies": {
+    }
+}

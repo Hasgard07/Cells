@@ -1,0 +1,17 @@
+{
+  "template": {
+    "tag": "cells-template-paper-drawer-panel",
+    "properties": {
+      "mode": "seamed",
+      "zones": [
+        "app__header",
+        "app__main",
+        "app__footer",
+        "app__overlay"
+      ]
+    }
+  },
+  "components": [
+    
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "modal-error-alert-title-msg": "Error",
+  "modal-error-alert-title-body": "Ocurrió un error intentando conectarse con el servidor",
+  "modal-error-alert-title-body-invalid-password": "Usuario y contraseña invalidos"
+}

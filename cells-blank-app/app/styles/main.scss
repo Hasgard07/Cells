@@ -1,0 +1,75 @@
+@keyframes spin {
+  to { transform: rotate(1turn); }
+ }
+
+
+#announcer {
+  position: fixed;
+  height: 0;
+  overflow: hidden;
+}
+
+#splash {
+	position: absolute;
+  left:50%;
+  top:50%;
+	display: inline-block;
+	width: 5em;
+	height: 5em;
+	margin-left:-2.5em;
+  margin-top:-2.5em;
+	font-size: 10px;
+	text-indent: 999em;
+	overflow: hidden;
+	animation: spin 1s infinite steps(8);
+  opacity:0
+}
+
+
+
+#splash:before,
+#splash:after,
+#splash > div:before,
+#splash > div:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 2.25em; /* (container width - part width)/2  */
+	width: .5em;
+	height: 1.5em;
+	border-radius: .2em;
+	background: #eee;
+	box-shadow: 0 3.5em #eee; /* container height - part height */
+	transform-origin: 50% 2.5em; /* container height / 2 */
+}
+
+#splash:before {
+	background: #555;
+}
+
+#splash:after {
+	transform: rotate(-45deg);
+	background: #777;
+}
+
+#splash > div:before {
+	transform: rotate(-90deg);
+	background: #999;
+}
+
+#splash > div:after {
+	transform: rotate(-135deg);
+	background: #bbb;
+}
+
+body {
+    padding:20px;
+    background:#f0f0f0;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+    &.loading {
+      #splash {
+        opacity: 1;
+      }
+    }
+}

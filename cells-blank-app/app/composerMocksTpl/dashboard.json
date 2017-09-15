@@ -1,0 +1,149 @@
+{
+  "template": {
+    "tag": "cells-template-paper-drawer-panel",
+    "properties": {
+      "mode": "seamed",
+      "zones": [
+        "app__header",
+        "app__main",
+        "app__overlay",
+        "app__complementary",
+        "app__footer"
+      ]
+    }
+  },
+  "components": [
+    {
+      "tag": "cells-component-app-header",
+      "zone": "app__header",
+      "properties": {
+        "title": "Dashboard",
+        "iconLeft": "coronita:menu"
+      }
+    },
+    {
+      "tag": "cells-organism-menu-sidebar",
+      "zone": "app__complementary",
+      "properties": {
+        "cellsConnections": {
+          "in": {
+            "menu_data_channel": {
+              "bind": "availableSections"
+            },
+            "user_data_channel": {
+              "bind": "user"
+            }
+          },
+          "out": {
+            "navigate_logout_channel": {
+              "bind": "launch-logout",
+              "link": {
+                "page": "login"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "tag": "cells-product-item-list",
+      "zone": "app__main",
+      "properties": {
+        "cellsConnections": {
+          "in": {
+            "accounts_data_channel": {
+              "bind": "items"
+            },
+            "balance_data_channel": {
+              "bind": "balance"
+            }
+          },
+          "out": {
+            "navigate_detail_channel": {
+              "bind": "product-item-tap",
+              "link": {
+                "page": "detail",
+                "params": {
+                  "productId": "product-id"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+      {
+        "tag": "modal-error-alert",
+        "zone": "app__main",
+        "properties": {
+          "cellsConnections": {
+            "in": {
+              "balance_data_error": {
+                "bind": "showConnectionError"
+              },
+              "accounts_data_error": {
+                "bind": "showConnectionError"
+              }
+            }
+          }
+        }
+      },
+    {
+      "tag": "dm-menu",
+      "familyPath": "../elements/dm-menu",
+      "zone": "app__main",
+      "type": "DM",
+      "properties": {
+        "cellsConnections": {
+          "in": {
+            "__bridge_page_dashboard": {
+              "bind": "getMenu"
+            }
+          },
+          "out": {
+            "menu_data_channel": {
+              "bind": "menu-changed"
+            },
+            "user_data_channel": {
+              "bind": "user-changed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "tag": "cells-bgadp-accounts-dm",
+      "zone": "app__main",
+      "type": "DM",
+      "properties": {
+        "currency": "CLP",
+        "language": "ES",
+        "host": "https://bbvalabs.com:8001",
+        "wantBalances": "true",
+        "consumerId": "00013",
+        "cellsConnections": {
+          "in": {
+            "__bridge_page_dashboard": {
+              "bind": "getAccounts"
+            }
+          },
+          "out": {
+            "accounts_data_channel": {
+              "bind": "accounts-changed"
+            },
+            "balance_data_channel": {
+              "bind": "accounts-balance-changed"
+            },
+            "balance_data_error": {
+              "bind": "accounts-balance-request-error"
+            },
+            "accounts_data_error": {
+              "bind": "accounts-request-error"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

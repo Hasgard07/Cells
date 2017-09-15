@@ -1,0 +1,43 @@
+{
+  "name": "cells-blank-app",
+  "version": "0.1.0",
+  "dependencies": {
+    "cells-polymer-bridge": "~0.9.0",
+    "cells-template-paper-drawer-panel": "^2.0.0",
+    "cells-component-app-header": "^7.0.0",
+    "cells-organism-menu-sidebar": "^9.0.0",
+    "coronita-icons": "^9.0.0",
+    "cells-login-view": "^9.0.0",
+    "cells-bgadp-user-dm": "^9.0.0",
+    "cells-modal-alert": "^9.0.0",
+    "cells-catalog": "^1.5.2",
+    "cells-bgadp-accounts-dm": "^10.0.1",
+    "cells-product-item-list": "^1.3.0"
+  },
+  "resolutions": {
+    "polymer": "^1.9.0",
+    "cells-login-view": "^9.0.0",
+    "iron-icon": "^2.0.0",
+    "cells-i18n-behavior": "^9.0.0",
+    "cells-st-button": "^9.0.0",
+    "coronita-icons": "^9.0.0",
+    "cells-credentials-form": "^9.0.0",
+    "cells-heading": "^9.0.0",
+    "cells-input-validations-behavior": "^9.0.0",
+    "cells-molecule-input": "^9.0.0",
+    "iron-input": "^2.0.0",
+    "cells-device-behavior": "^9.0.0",
+    "cells-molecule-spinner": "^9.0.0",
+    "cells-atom-icon": "^9.0.0",
+    "cells-bgadp-user-dm": "^9.0.0",
+    "cells-modal-alert": "^9.0.0",
+    "cells-bottom-modal": "^9.0.0",
+    "cells-atom-button": "^9.0.0",
+    "cells-icon-message": "^9.0.0",
+    "moment": "^2.18.1",
+    "iron-a11y-keys": "^2.0.0",
+    "iron-list": "^1.0.0",
+    "webcomponentsjs": "^v1.0.2",
+    "cells-bgadp-accounts-dm": "^10.0.1"
+  }
+}
